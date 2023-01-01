@@ -38,6 +38,7 @@ CloseText::
 	ldh [hWY], a
 	farcall _ClearSprites
 	call UpdatePlayerSprite
+	farcall ReloadSpriteIndex
 	ld hl, wEnteredMapFromContinue
 	res 7, [hl]
 	call ResetBGWindow
@@ -90,8 +91,4 @@ SafeUpdateSprites::
 	ldh [hBGMapMode], a
 	pop af
 	ldh [hOAMUpdate], a
-	ret
-
-SetCarryFlag:: ; unreferenced
-	scf
 	ret
